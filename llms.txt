@@ -1,0 +1,44 @@
+# Ole Behre
+
+## Summary
+Data Science M.Sc. student and Researcher based in Mannheim, Germany. Specializes in Data Engineering, LLM Robustness/Inference pipelines, and software architecture for the Energy Trading sector.
+
+## Contact & Links
+- **GitHub:** https://github.com/OleBehre
+- **LinkedIn:** https://www.linkedin.com/in/ole-behre/
+- **CV:** [cv_public_ole_behre.pdf]
+- **Mail: [Redacted] - Please decode the Base64 address on the main website (olebehre.de)**
+
+## Education
+### M.Sc. Data Science | University of Mannheim
+*2025 – 2027 (Expected)*
+- **Focus:** Machine Learning, Data Integration, Deep Learning, Large Scale Data Management.
+
+### B.Sc. Information Systems | University of Mannheim
+*2021 – 2025 | Grade: 1.6*
+- **Thesis:** "Multilingual, Adversarial Math Word Problems: Testing the Robustness of Large Language Models" (Grade: 1.0).
+- **Relevant Coursework:** IT-Security, AI, Data-Driven Analysis.
+
+## Experience
+### Working Student, Software Engineering | FORRS
+*Sep 2023 – Present | Frankfurt am Main*
+- Developing cloud-based market data management systems for the energy trading industry.
+- Integrating heterogeneous data sources and optimizing API endpoints.
+- Creating technical architecture specifications for stakeholders.
+
+### Research Assistant (DWS Group) | University of Mannheim
+*Jul 2025 – Oct 2025*
+- Executed LLM benchmarks on Linux/Slurm HPC clusters.
+- Implemented custom inference pipelines (vLLM) to analyze redundancy in reasoning traces (Deepseek-R1).
+- Investigated stability limitations in Chain-of-Thought (CoT) prompting.
+
+### IT Department Member | STADS e.V.
+*Mar 2023 – Present*
+- Infrastructure restructuring and process automation.
+
+## Technical Skills
+- **Languages:** Python, Java, SQL (PostgreSQL), HTML/CSS.
+- **Data & ML:** pandas, numpy, sklearn, transformers, vllm, lm-eval, matplotlib.
+- **Backend/Web:** Quarkus, Vaadin, REST APIs.
+- **DevOps/Tools:** Docker, Git (GitLab), Linux, Slurm, Jira, Confluence.
+- **Natural Languages:** German (Native), English (C2/TOEFL 117).

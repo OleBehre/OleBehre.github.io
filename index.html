@@ -6,6 +6,7 @@
     <meta name="description" content="Ole Behre - Data Engineering & Research Portfolio">
     <title>Ole Behre | Data Science & Energy</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cstyle%3E@media(prefers-color-scheme:dark)%7Btext%7Bfill:%23ffffff%7D%7D@media(prefers-color-scheme:light)%7Btext%7Bfill:%23111111%7D%7D%3C/style%3E%3Ctext y='.9em' font-size='90' font-family='monospace' font-weight='bold'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Summary" />
    <style> 
     .terminal-bar {
             margin-bottom: 3rem;
@@ -38,6 +39,57 @@
             --sub-color: #555555;
             --border-color: #e5e5e5;
             --accent-color: #0033cc;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #111111;
+                --text-color: #e5e5e5;
+                --sub-color: #aaaaaa;
+                --border-color: #333333;
+                --accent-color: #66b3ff;
+            }
+        }
+
+        @media print {
+            /* 1. Force Clean White Paper Look */
+            :root {
+                --bg-color: #ffffff !important;
+                --text-color: #000000 !important;
+                --sub-color: #333333 !important;
+            }
+
+            body {
+                background-color: white !important;
+                color: black !important;
+                padding: 0 !important; /* Let the printer handle margins */
+            }
+
+            /* 2. Hide Digital-Only Elements (Terminal UI, Animation, encoded email) */
+            .terminal-bar, 
+            .cursor, 
+            .windpark-container, 
+            #email-trigger, 
+            noscript {
+                display: none !important;
+            }
+
+            /* 3. Make Links Usable on Paper */
+            a[href^="http"]::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+                color: #555;
+            }
+
+            /* 4. Prevent Awkward Cuts */
+            section, .item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            h1 {
+                border-bottom: 2px solid black;
+                padding-bottom: 5px;
+            }
         }
 
         /* Reset & Base */
@@ -381,7 +433,14 @@
                 <li><a href="cv_public_ole_behre.pdf">CV (PDF)</a></li>
                 <li><a href="https://github.com/OleBehre" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                 <li><a href="https://www.linkedin.com/in/ole-behre/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><span class="email-protect">Mail: ole [dot] behre [at] yahoo [dot] de</span></li>
+                <li>
+                    <a href="#" id="email-trigger" onclick="revealContact(this); return false;">[Reveal Mail]</a>
+                    <noscript>
+                        <span style="color: var(--sub-color); font-size: 0.85em; margin-left: 0.5rem;">
+                            // Enable JavaScript to decode
+                        </span>
+                    </noscript>
+                </li>
             </ul>
         </section>
 
@@ -398,6 +457,19 @@
             <span>Localhost: Mannheim, DE   |   </span>
             <span>Last updated: 2026-01-13</span> 
             </footer>
+
+        <script>
+        function revealContact(el) {
+            const encoded = "b2xlLmJlaHJlQHlhaG9vLmRl"; 
+            const decoded = atob(encoded);
+            
+            el.href = "mailto:" + decoded;
+            el.innerText = decoded;
+            el.style.color = "#0033cc";
+
+            el.onclick = null;
+        }
+    </script>
     </main>
 
 </body>
