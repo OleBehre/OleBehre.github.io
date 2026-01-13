@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404: File Not Found</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --sub-color: #666666;
+            --error-color: #cc0000; /* Standard syntax highlighting for errors */
+            --code-blue: #0033cc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        main {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* Terminal Window Style */
+        .terminal {
+            border-left: 3px solid var(--sub-color);
+            padding-left: 1.5rem;
+        }
+
+        .cmd { margin-bottom: 1.5rem; }
+        .prompt { color: var(--sub-color); user-select: none; }
+        .input { font-weight: bold; }
+
+        .traceback {
+            color: var(--sub-color);
+            margin-bottom: 1.5rem;
+            white-space: pre-wrap; /* Handle text wrapping on mobile */
+            word-break: break-all;
+        }
+
+        .error-msg {
+            color: var(--error-color);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        /* Navigation */
+        .recovery-mode {
+            border-top: 1px dashed var(--sub-color);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--code-blue);
+            transition: background 0.2s;
+        }
+
+        a:hover {
+            background-color: var(--code-blue);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="terminal">
+            <div class="cmd">
+                <span class="prompt">guest@mannheim:~$</span> 
+                <span class="input">python3 resolve_path.py --request "<script>document.write(window.location.pathname)</script>"</span>
+            </div>
+
+            <div class="traceback">Traceback (most recent call last):
+  File "router.py", line 404, in &lt;module&gt;
+    raise FileNotFoundError(f"The path '{path}' does not exist.")</div>
+
+            <span class="error-msg">FileNotFoundError: [Errno 2] No such file or directory</span>
+
+            <div class="recovery-mode">
+                # System halted.<br>
+                # <a href="/">[cd ~] Return to Home</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
