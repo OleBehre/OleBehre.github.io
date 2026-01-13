@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ole Behre - Data Engineering & Research Portfolio">
+    <title>Ole Behre | Data Science & Energy</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cstyle%3E@media(prefers-color-scheme:dark)%7Btext%7Bfill:%23ffffff%7D%7D@media(prefers-color-scheme:light)%7Btext%7Bfill:%23111111%7D%7D%3C/style%3E%3Ctext y='.9em' font-size='90' font-family='monospace' font-weight='bold'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+   <style> 
+    .terminal-bar {
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.85rem;
+            color: var(--sub-color);
+        }
+
+        .prompt-user { color: var(--text-color); font-weight: bold; }
+        .prompt-cmd { color: var(--code-color); }
+        
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.1em;
+            background-color: var(--text-color);
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --sub-color: #555555;
+            --border-color: #e5e5e5;
+            --accent-color: #0033cc;
+        }
+
+        /* Reset & Base */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            font-size: 14px;
+            padding: 4rem 1rem 2rem 1rem; /* Reduced bottom padding */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status {
+            font-size: 0.9rem;
+            color: var(--sub-color);
+            display: block;
+            margin-bottom: 3rem;
+        }
+
+        /* Sections */
+        section { margin-bottom: 3.5rem; }
+
+        h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--sub-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+
+        /* Experience Blocks */
+        .item {
+            margin-bottom: 2.5rem;
+        }
+
+        .item-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .item-sub {
+            color: var(--sub-color);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+
+        .item-body {
+            padding-left: 1rem;
+            border-left: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        /* Lists within items */
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-list li {
+            margin-bottom: 0.4rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .detail-list li::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+            color: var(--sub-color);
+        }
+
+        /* Specification Table */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .spec-table td {
+            padding: 0.6rem 0;
+            vertical-align: top;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .spec-key { 
+            width: 150px; 
+            color: var(--sub-color); 
+            padding-right: 1rem;
+        }
+        
+        .spec-val { color: var(--text-color); }
+
+        /* Links */
+        a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        
+        a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+        }
+
+        ul.links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* Email Obfuscation Style */
+        .email-protect {
+            color: var(--sub-color);
+            cursor: text;
+        }
+
+        /* Windpark Animation */
+        .windpark-container {
+            margin-top: auto; /* Pushes to bottom of main */
+            padding-top: 4rem;
+            text-align: center;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .windpark {
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1; /* Crucial for vertical alignment */
+            font-size: 24px;
+            color: #999;
+            margin-bottom: -4px; /* Slight negative margin to touch the border */
+            display: inline-block;
+        }
+
+        /* Rotating blade illusion */
+        .turbine {
+            display: inline-block;
+            position: relative;
+        }
+
+        .turbine::before {
+            content: "|";
+            display: inline-block;
+            animation: spin 1.2s steps(4) infinite;
+            transform-origin: center;
+        }
+
+        /* Stagger animation for realism */
+        .t1::before { animation-duration: 1.2s; }
+        .t2::before { animation-duration: 0.9s; }
+        .t3::before { animation-duration: 1.5s; }
+
+        @keyframes spin {
+            0%   { content: "|"; }
+            25%  { content: "/"; }
+            50%  { content: "-"; }
+            75%  { content: "\\"; }
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 0; /* Zero margin to touch the windpark */
+            font-size: 0.75rem;
+            color: #999;
+            border-top: 1px solid var(--text-color); /* The Ground */
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="terminal-bar">
+            <span class="prompt-user">stranger@welcome:~/user/ole/site$</span> 
+            <span class="prompt-cmd">./view_profile.py --verbose</span><span class="cursor"></span>
+        </div>
+
+        <header>
+            <h1>Ole Behre</h1>
+            <span class="status">M.Sc. Data Science Student | University of Mannheim</span>
+        </header>
+
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="item">
+                <div class="item-head">
+                    <span>M.Sc. Data Science</span>
+                    <span>2025 – 2027 (Expected)</span>
+                </div>
+                <div class="item-sub">University of Mannheim</div>
+                <div class="item-body">
+                    Focus: Machine Learning, Data Integration, Deep Learning, Large Scale Data Management. 
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <span>B.Sc. Information Systems (Wirtschaftsinformatik)</span>
+                    <span>2021 – 2025</span>
+                </div>
+                <div class="item-sub">University of Mannheim | Grade: 1.6</div>
+                <div class="item-body">
+                    <ul class="detail-list">
+                        <li>Thesis: "Multilingual, Adversarial Math Word Problems: Testing the Robustness of Large Language Models" (Grade: 1.0).</li>
+                        <li>Relevant Coursework: IT-Security, Artificial Intelligence, Data-Driven Analysis.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Selected Experience</h2>
+
+            <div class="item">
+                <div class="item-head">
+                    <span>Working Student, Software Engineering</span>
+                    <span>Sep 2023 – Present</span>
+                </div>
+                <div class="item-sub">FORRS | Frankfurt am Main</div>
+                <div class="item-body">
+                    <ul class="detail-list">
+                        <li>Development of a cloud-based market data management system for the energy trading industry.</li>
+                        <li>Integration of heterogeneous data sources and construction of robust pipelines for downstream systems.</li>
+                        <li>Optimization of multiple API endpoints to enhance system performance and reliability.</li>
+                        <li>Creation of technical architecture diagrams and specifications for internal and external stakeholders.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <span>Research Assistant (DWS Group)</span>
+                    <span>Jul 2025 – Oct 2025</span>
+                </div>
+                <div class="item-sub">University of Mannheim | Chair for Data & Web Science</div>
+                <div class="item-body">
+                    <ul class="detail-list">
+                        <li>Setup and execution of LLM benchmarks on Linux-based HPC clusters (Slurm resource scheduling).</li>
+                        <li>Implementation of custom inference pipelines using vLLM to analyze redundancy patterns in reasoning traces (e.g., Deepseek-R1).</li>
+                        <li>Explored stability limitations (brittleness) in Chain-of-Thought (CoT) prompting under constraints.</li>
+                    </ul>
+                </div>
+            </div>
+ 
+            <div class="item">
+                <div class="item-head">
+                    <span>IT Department Member</span>
+                    <span>Mar 2023 – Present</span>
+                </div>
+                <div class="item-sub">STADS e.V. (Student Association for Data Analytics)</div>
+                <div class="item-body">
+                    <ul class="detail-list">
+                        <li>Website maintenance and infrastructure restructuring.</li>
+                        <li>Automation of internal association processes.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="specs">
+            <h2>Technical Specifications</h2>
+            <table class="spec-table">
+                <tr>
+                    <td class="spec-key">Programming</td>
+                    <td class="spec-val">Python, Java, SQL (PostgreSQL), HTML/CSS</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">Data & ML</td>
+                    <td class="spec-val">pandas, numpy, sklearn, transformers, vllm, lm-eval, matplotlib</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">Backend/Web</td>
+                    <td class="spec-val">Quarkus, Vaadin, REST APIs</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">DevOps & Tools</td>
+                    <td class="spec-val">Docker, Git (GitLab), Linux, Slurm, Jira, Confluence</td>
+                </tr>
+                <tr>
+                    <td class="spec-key">Languages</td>
+                    <td class="spec-val">German (Native), English (TOEFL 117/120 | C2)</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Links & Contact</h2>
+            <ul class="links">
+                <li><a href="cv_public_ole_behre.pdf">CV (PDF)</a></li>
+                <li><a href="https://github.com/OleBehre" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/ole-behre/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><span class="email-protect">Mail: ole [dot] behre [at] yahoo [dot] de</span></li>
+            </ul>
+        </section>
+
+        <div class="windpark-container">
+            <div aria-hidden="true">
+                <pre class="windpark">
+                         <span class="turbine t1"> </span>  <span class="turbine t2"> </span>  <span class="turbine t3"> </span>
+                        |   |   |</pre>
+            </div>
+            <span class="sr-only">Animation of a wind park representing renewable energy interest.</span>
+            </div>
+
+        <footer>
+            <span>Localhost: Mannheim, DE   |   </span>
+            <span>Last updated: 2026-01-13</span> 
+            </footer>
+    </main>
+
+</body>
+</html>
