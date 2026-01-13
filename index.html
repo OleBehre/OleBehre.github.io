@@ -198,11 +198,18 @@
         .windpark {
             font-family: monospace;
             white-space: pre;
-            line-height: 1; /* Crucial for vertical alignment */
+            line-height: 1;
             font-size: 24px;
             color: #999;
-            margin-bottom: -4px; /* Slight negative margin to touch the border */
+            margin-bottom: -4px;
             display: inline-block;
+            /* Remove any explicit margins if you added them */
+        }
+
+        @media (max-width: 600px) {
+        .windpark {
+            font-size: 16px; /* Shrink turbines on phones */
+        }
         }
 
         /* Rotating blade illusion */
@@ -380,12 +387,12 @@
 
         <div class="windpark-container">
             <div aria-hidden="true">
-                <pre class="windpark">
-                         <span class="turbine t1"> </span>  <span class="turbine t2"> </span>  <span class="turbine t3"> </span>
-                        |   |   |</pre>
+        <pre class="windpark">
+         <span class="turbine t1"> </span>   <span class="turbine t2"> </span>   <span class="turbine t3"> </span>
+        |    |    |</pre>
             </div>
             <span class="sr-only">Animation of a wind park representing renewable energy interest.</span>
-            </div>
+        </div>
 
         <footer>
             <span>Localhost: Mannheim, DE   |   </span>
