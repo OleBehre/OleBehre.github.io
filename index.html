@@ -1,38 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ole Behre - Data Engineering & Research Portfolio">
     <title>Ole Behre | Data Science & Energy</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cstyle%3E@media(prefers-color-scheme:dark)%7Btext%7Bfill:%23ffffff%7D%7D@media(prefers-color-scheme:light)%7Btext%7Bfill:%23111111%7D%7D%3C/style%3E%3Ctext y='.9em' font-size='90' font-family='monospace' font-weight='bold'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' fill='%23111111' font-size='90' font-family='monospace' font-weight='bold'%3E%26gt;_%3C/text%3E%3C/svg%3E">
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Summary" />
-   <style> 
-    .terminal-bar {
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px dashed var(--border-color);
-            font-size: 0.85rem;
-            color: var(--sub-color);
-        }
-
-        .prompt-user { color: var(--text-color); font-weight: bold; }
-        .prompt-cmd { color: var(--code-color); }
-        
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 1.1em;
-            background-color: var(--text-color);
-            vertical-align: text-bottom;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
+    <style>
         :root {
             --bg-color: #ffffff;
             --text-color: #111111;
@@ -40,17 +17,9 @@
             --border-color: #e5e5e5;
             --accent-color: #0033cc;
         }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #111111;
-                --text-color: #e5e5e5;
-                --sub-color: #aaaaaa;
-                --border-color: #333333;
-                --accent-color: #66b3ff;
-            }
-        }
 
         @media print {
+
             /* 1. Force Clean White Paper Look */
             :root {
                 --bg-color: #ffffff !important;
@@ -61,14 +30,12 @@
             body {
                 background-color: white !important;
                 color: black !important;
-                padding: 0 !important; /* Let the printer handle margins */
+                padding: 0 !important;
             }
 
-            /* 2. Hide Digital-Only Elements (Terminal UI, Animation, encoded email) */
-            .terminal-bar, 
-            .cursor, 
-            .windpark-container, 
-            #email-trigger, 
+            /* 2. Hide Digital-Only Elements */
+            .windpark-container,
+            #email-trigger,
             noscript {
                 display: none !important;
             }
@@ -81,7 +48,8 @@
             }
 
             /* 4. Prevent Awkward Cuts */
-            section, .item {
+            section,
+            .item {
                 break-inside: avoid;
                 page-break-inside: avoid;
             }
@@ -93,7 +61,11 @@
         }
 
         /* Reset & Base */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: Consolas, Monaco, 'Courier New', monospace;
@@ -101,7 +73,7 @@
             color: var(--text-color);
             line-height: 1.5;
             font-size: 14px;
-            padding: 4rem 1rem 2rem 1rem; /* Reduced bottom padding */
+            padding: 4rem 1rem 2rem 1rem;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -133,7 +105,9 @@
         }
 
         /* Sections */
-        section { margin-bottom: 3.5rem; }
+        section {
+            margin-bottom: 3.5rem;
+        }
 
         h2 {
             font-size: 0.8rem;
@@ -202,13 +176,15 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .spec-key { 
-            width: 150px; 
-            color: var(--sub-color); 
+        .spec-key {
+            width: 150px;
+            color: var(--sub-color);
             padding-right: 1rem;
         }
-        
-        .spec-val { color: var(--text-color); }
+
+        .spec-val {
+            color: var(--text-color);
+        }
 
         /* Links */
         a {
@@ -217,7 +193,7 @@
             text-decoration-thickness: 1px;
             text-underline-offset: 3px;
         }
-        
+
         a:hover {
             background-color: var(--text-color);
             color: var(--bg-color);
@@ -240,7 +216,7 @@
 
         /* Windpark Animation */
         .windpark-container {
-            margin-top: auto; /* Pushes to bottom of main */
+            margin-top: auto;
             padding-top: 4rem;
             text-align: center;
             width: 100%;
@@ -255,16 +231,14 @@
             color: #999;
             margin-bottom: -4px;
             display: inline-block;
-            /* Remove any explicit margins if you added them */
         }
 
         @media (max-width: 600px) {
-        .windpark {
-            font-size: 16px; /* Shrink turbines on phones */
-        }
+            .windpark {
+                font-size: 16px;
+            }
         }
 
-        /* Rotating blade illusion */
         .turbine {
             display: inline-block;
             position: relative;
@@ -277,18 +251,36 @@
             transform-origin: center;
         }
 
-        /* Stagger animation for realism */
-        .t1::before { animation-duration: 1.2s; }
-        .t2::before { animation-duration: 0.9s; }
-        .t3::before { animation-duration: 1.5s; }
+        .t1::before {
+            animation-duration: 1.2s;
+        }
+
+        .t2::before {
+            animation-duration: 0.9s;
+        }
+
+        .t3::before {
+            animation-duration: 1.5s;
+        }
 
         @keyframes spin {
-            0%   { content: "|"; }
-            25%  { content: "/"; }
-            50%  { content: "-"; }
-            75%  { content: "\\"; }
+            0% {
+                content: "|";
+            }
+
+            25% {
+                content: "/";
+            }
+
+            50% {
+                content: "-";
+            }
+
+            75% {
+                content: "\\";
+            }
         }
-        
+
         .sr-only {
             position: absolute;
             width: 1px;
@@ -302,22 +294,18 @@
 
         /* Footer */
         footer {
-            margin-top: 0; /* Zero margin to touch the windpark */
+            margin-top: 0;
             font-size: 0.75rem;
             color: #999;
-            border-top: 1px solid var(--text-color); /* The Ground */
+            border-top: 1px solid var(--text-color);
             padding-top: 1rem;
         }
     </style>
 </head>
+
 <body>
 
     <main>
-        <div class="terminal-bar">
-            <span class="prompt-user">stranger@welcome:~/user/ole/site$</span> 
-            <span class="prompt-cmd">./view_profile.py --verbose</span><span class="cursor"></span>
-        </div>
-
         <header>
             <h1>Ole Behre</h1>
             <span class="status">M.Sc. Data Science Student | University of Mannheim</span>
@@ -325,7 +313,7 @@
 
         <section id="education">
             <h2>Education</h2>
-            
+
             <div class="item">
                 <div class="item-head">
                     <span>M.Sc. Data Science</span>
@@ -333,7 +321,8 @@
                 </div>
                 <div class="item-sub">University of Mannheim</div>
                 <div class="item-body">
-                    Focus: Machine Learning, Data Integration, Deep Learning, Large Scale Data Management. 
+                    Focus: Machine Learning, Data Integration, Deep Learning, Large Scale Data Management, Applications
+                    of AI in Industry.
                 </div>
             </div>
 
@@ -345,7 +334,8 @@
                 <div class="item-sub">University of Mannheim | Grade: 1.6</div>
                 <div class="item-body">
                     <ul class="detail-list">
-                        <li>Thesis: "Multilingual, Adversarial Math Word Problems: Testing the Robustness of Large Language Models" (Grade: 1.0).</li>
+                        <li>Thesis: "Multilingual, Adversarial Math Word Problems: Testing the Robustness of Large
+                            Language Models" (Grade: 1.0).</li>
                         <li>Relevant Coursework: IT-Security, Artificial Intelligence, Data-Driven Analysis.</li>
                     </ul>
                 </div>
@@ -357,16 +347,18 @@
 
             <div class="item">
                 <div class="item-head">
-                    <span>Working Student, Software Engineering</span>
-                    <span>Sep 2023 – Present</span>
+                    <span>Working Student, Software Engineering (Algo Trading)</span>
+                    <span>Jul 2025 – Present</span>
                 </div>
                 <div class="item-sub">FORRS | Frankfurt am Main</div>
                 <div class="item-body">
                     <ul class="detail-list">
-                        <li>Development of a cloud-based market data management system for the energy trading industry.</li>
-                        <li>Integration of heterogeneous data sources and construction of robust pipelines for downstream systems.</li>
-                        <li>Optimization of multiple API endpoints to enhance system performance and reliability.</li>
-                        <li>Creation of technical architecture diagrams and specifications for internal and external stakeholders.</li>
+                        <li>Engineered execution infrastructure and algorithmic trading solutions tailored for
+                            short-term power markets, focusing on system reliability and efficient data handling.</li>
+                        <li>Architected a cloud-based data management system to ingest, normalize, and process
+                            high-volume, diverse time-series datasets for the energy sector.</li>
+                        <li>Built robust ETL pipelines and REST APIs to seamlessly integrate and process external market
+                            data feeds.</li>
                     </ul>
                 </div>
             </div>
@@ -379,16 +371,50 @@
                 <div class="item-sub">University of Mannheim | Chair for Data & Web Science</div>
                 <div class="item-body">
                     <ul class="detail-list">
-                        <li>Setup and execution of LLM benchmarks on Linux-based HPC clusters (Slurm resource scheduling).</li>
-                        <li>Implementation of custom inference pipelines using vLLM to analyze redundancy patterns in reasoning traces (e.g., Deepseek-R1).</li>
-                        <li>Explored stability limitations (brittleness) in Chain-of-Thought (CoT) prompting under constraints.</li>
+                        <li>Orchestrated LLM benchmarking suites on Linux-based HPC clusters, utilizing Slurm for
+                            optimized compute resource scheduling.</li>
+                        <li>Built custom, high-throughput inference pipelines using vLLM to extract and analyze
+                            redundancy patterns in the reasoning traces of frontier models (e.g., Deepseek-R1).</li>
+                        <li>Conducted quantitative evaluations of inference-time interventions, analyzing the stability
+                            and brittleness of Chain-of-Thought (CoT) prompting.</li>
                     </ul>
                 </div>
             </div>
- 
+
             <div class="item">
                 <div class="item-head">
-                    <span>IT Department Member</span>
+                    <span>Working Student, Software Engineering (Backend)</span>
+                    <span>Sep 2023 – Jan 2025</span>
+                </div>
+                <div class="item-sub">FORRS | Frankfurt am Main</div>
+                <div class="item-body">
+                    <ul class="detail-list">
+                        <li>Developed backend services for a cloud market data system utilized in energy trading.</li>
+                        <li>Optimized REST API endpoints using Java and Quarkus to improve data retrieval performance
+                            and system efficiency.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <span>Working Student, Consulting & Industry Analysis</span>
+                    <span>Mar 2022 – Jan 2025</span>
+                </div>
+                <div class="item-sub">FORRS | Frankfurt am Main</div>
+                <div class="item-body">
+                    <ul class="detail-list">
+                        <li>Conducted data analysis and market research across the energy trading value chain to support
+                            consulting projects.</li>
+                        <li>Produced and organized a targeted podcast series exploring the technical and business
+                            intersection of Data Science and the energy industry.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-head">
+                    <span>Member</span>
                     <span>Mar 2023 – Present</span>
                 </div>
                 <div class="item-sub">STADS e.V. (Student Association for Data Analytics)</div>
@@ -396,6 +422,7 @@
                     <ul class="detail-list">
                         <li>Website maintenance and infrastructure restructuring.</li>
                         <li>Automation of internal association processes.</li>
+                        <li>Trying to get people to join the STADS Running Club ;)</li>
                     </ul>
                 </div>
             </div>
@@ -427,12 +454,22 @@
             </table>
         </section>
 
+        <section id="off-screen">
+            <h2>Off-Screen</h2>
+            <div class="item" style="margin-bottom: 0;">
+                <div class="item-body">
+                    Bikepacking, Bouldering & Climbing, Casual Running, Specialty Coffee, Video Games.
+                </div>
+            </div>
+        </section>
+
         <section id="contact">
             <h2>Links & Contact</h2>
             <ul class="links">
                 <li><a href="cv_public_ole_behre.pdf">CV (PDF)</a></li>
                 <li><a href="https://github.com/OleBehre" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/ole-behre/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/ole-behre/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a></li>
                 <li>
                     <a href="#" id="email-trigger" onclick="revealContact(this); return false;">[Reveal Mail]</a>
                     <noscript>
@@ -446,7 +483,7 @@
 
         <div class="windpark-container">
             <div aria-hidden="true">
-        <pre class="windpark">
+                <pre class="windpark">
          <span class="turbine t1"> </span>   <span class="turbine t2"> </span>   <span class="turbine t3"> </span>
         |    |    |</pre>
             </div>
@@ -454,23 +491,24 @@
         </div>
 
         <footer>
-            <span>Localhost: Mannheim, DE   |   </span>
-            <span>Last updated: 2026-01-13</span> 
-            </footer>
+            <span>Localhost: Mannheim, DE | </span>
+            <span>Last updated: 2026-03-04</span>
+        </footer>
 
-        <script>
+    </main>
+
+    <script>
         function revealContact(el) {
-            const encoded = "b2xlLmJlaHJlQHlhaG9vLmRl"; 
+            const encoded = "b2xlLmJlaHJlQHlhaG9vLmRl";
             const decoded = atob(encoded);
-            
+
             el.href = "mailto:" + decoded;
             el.innerText = decoded;
-            el.style.color = "#0033cc";
+            el.style.color = "var(--accent-color)";
 
             el.onclick = null;
         }
     </script>
-    </main>
-
 </body>
+
 </html>

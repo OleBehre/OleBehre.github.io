@@ -1,44 +1,57 @@
 # Ole Behre
 
 ## Summary
-Data Science M.Sc. student and Researcher based in Mannheim, Germany. Specializes in Data Engineering, LLM Robustness/Inference pipelines, and software architecture for the Energy Trading sector.
+Data Science M.Sc. student and Researcher based in Mannheim, Germany. Specializes in AI Engineering, Algorithmic Trading infrastructure, LLM inference pipelines, and backend architecture for the Energy Trading sector.
 
 ## Contact & Links
 - **GitHub:** https://github.com/OleBehre
 - **LinkedIn:** https://www.linkedin.com/in/ole-behre/
 - **CV:** [cv_public_ole_behre.pdf]
-- **Mail: [Redacted] - Please decode the Base64 address on the main website (olebehre.de)**
+- **Mail:** [Redacted] - Please decode the Base64 address on the main website (olebehre.de)
 
 ## Education
 ### M.Sc. Data Science | University of Mannheim
 *2025 – 2027 (Expected)*
-- **Focus:** Machine Learning, Data Integration, Deep Learning, Large Scale Data Management.
+- **Focus:** Machine Learning, Data Integration, Deep Learning, Large Scale Data Management, Applications of AI in Industry.
 
 ### B.Sc. Information Systems | University of Mannheim
 *2021 – 2025 | Grade: 1.6*
 - **Thesis:** "Multilingual, Adversarial Math Word Problems: Testing the Robustness of Large Language Models" (Grade: 1.0).
-- **Relevant Coursework:** IT-Security, AI, Data-Driven Analysis.
+- **Relevant Coursework:** IT-Security, Artificial Intelligence, Data-Driven Analysis.
 
 ## Experience
-### Working Student, Software Engineering | FORRS
-*Sep 2023 – Present | Frankfurt am Main*
-- Developing cloud-based market data management systems for the energy trading industry.
-- Integrating heterogeneous data sources and optimizing API endpoints.
-- Creating technical architecture specifications for stakeholders.
+### Working Student, Software Engineering (Algo Trading) | FORRS
+*Jul 2025 – Present | Frankfurt am Main*
+- Engineered execution infrastructure and algorithmic trading solutions tailored for short-term power markets, focusing on system reliability and efficient data handling.
+- Architected a cloud-based data management system to ingest, normalize, and process high-volume, diverse time-series datasets for the energy sector.
+- Built robust ETL pipelines and REST APIs to seamlessly integrate and process external market data feeds.
 
 ### Research Assistant (DWS Group) | University of Mannheim
 *Jul 2025 – Oct 2025*
-- Executed LLM benchmarks on Linux/Slurm HPC clusters.
-- Implemented custom inference pipelines (vLLM) to analyze redundancy in reasoning traces (Deepseek-R1).
-- Investigated stability limitations in Chain-of-Thought (CoT) prompting.
+- Orchestrated LLM benchmarking suites on Linux-based HPC clusters, utilizing Slurm for optimized compute resource scheduling.
+- Built custom, high-throughput inference pipelines using vLLM to extract and analyze redundancy patterns in the reasoning traces of frontier models (e.g., Deepseek-R1).
+- Conducted quantitative evaluations of inference-time interventions, analyzing the stability and brittleness of Chain-of-Thought (CoT) prompting.
 
-### IT Department Member | STADS e.V.
+### Working Student, Software Engineering (Backend) | FORRS
+*Sep 2023 – Jan 2025 | Frankfurt am Main*
+- Developed backend services for a cloud market data system utilized in energy trading.
+- Optimized REST API endpoints using Java and Quarkus to improve data retrieval performance and system efficiency.
+
+### Working Student, Consulting & Industry Analysis | FORRS
+*Mar 2022 – Jan 2025 | Frankfurt am Main*
+- Conducted data analysis and market research across the energy trading value chain to support consulting projects.
+- Represented the firm at premier energy trading conferences (e.g., E-world), engaging with industry stakeholders on data science and energy trends.
+- Produced and organized a targeted podcast series exploring the technical and business intersection of Data Science and the energy industry.
+
+### Member | STADS e.V. (Student Association for Data Analytics)
 *Mar 2023 – Present*
-- Infrastructure restructuring and process automation.
+- Website maintenance and infrastructure restructuring.
+- Automation of internal association processes.
+- Trying to get people to join the STADS Running Club.
 
 ## Technical Skills
-- **Languages:** Python, Java, SQL (PostgreSQL), HTML/CSS.
+- **Programming:** Python, Java, SQL (PostgreSQL), HTML/CSS.
 - **Data & ML:** pandas, numpy, sklearn, transformers, vllm, lm-eval, matplotlib.
 - **Backend/Web:** Quarkus, Vaadin, REST APIs.
-- **DevOps/Tools:** Docker, Git (GitLab), Linux, Slurm, Jira, Confluence.
-- **Natural Languages:** German (Native), English (C2/TOEFL 117).
+- **DevOps & Tools:** Docker, Git (GitLab), Linux, Slurm, Jira, Confluence.
+- **Languages:** German (Native), English (TOEFL 117/120 | C2).
